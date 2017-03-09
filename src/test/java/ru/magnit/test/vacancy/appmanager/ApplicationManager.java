@@ -20,9 +20,7 @@ public class ApplicationManager {
   WebDriver wd;
 
   private NavigationHelper navigationHelper;
-  private GroupHelper groupHelper;
-  private SessionHelper sessionHelper;
-  private ContactHelper contactHelper;
+  private VacancyHelper vacancyHelper;
   private String browser;
 
   public ApplicationManager(String browser) {
@@ -43,30 +41,20 @@ public class ApplicationManager {
     }
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseUrl"));
-    groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
-    sessionHelper = new SessionHelper(wd);
-    contactHelper = new ContactHelper(wd);
-    sessionHelper.login(properties.getProperty("web.adminLogin"),properties.getProperty("web.adminPassword"));
+    vacancyHelper = new VacancyHelper(wd);
+
   }
 
   public void stop() {
     wd.quit();
   }
 
-  public GroupHelper group() {
-    return groupHelper;
-  }
-
   public NavigationHelper goTo() {
     return navigationHelper;
   }
 
-  public SessionHelper getSessionHelper() {
-    return sessionHelper;
-  }
-
-  public ContactHelper contact(){
-    return contactHelper;
+  public VacancyHelper vacancy() {
+    return vacancyHelper;
   }
 }
