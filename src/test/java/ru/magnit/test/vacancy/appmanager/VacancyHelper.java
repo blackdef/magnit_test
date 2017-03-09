@@ -30,6 +30,6 @@ public class VacancyHelper extends HelperBase {
     type(By.name("user_date_year"),vacancy.getBirthYear());
     type(By.name("user_phone"),vacancy.getContactPhone());
     type(By.name("user_mail"),vacancy.getEmail());
-    
+
   }
 }

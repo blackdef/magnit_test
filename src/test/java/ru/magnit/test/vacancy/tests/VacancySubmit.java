@@ -12,14 +12,20 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
+import ru.magnit.test.vacancy.model.VacancyData;
+
 import static org.openqa.selenium.OutputType.*;
 
 public class VacancySubmit extends TestBase{
 
     @Test
-    public void SubmitWithOutAppruv() {
+    public void testSubmitVacancyWithOutParameter() {
+        VacancyData vacancy = new VacancyData().withRegion("Архангельская область").withCity("Архангельск").withVacancyName("Главный юристконсульт").
+                withPersoneFullName("Пупкин Иван Иванович").withBirthDay("12").withBirthYear("1234").
+                withEmail("qwe@asd.zx").withApproval(true);
+
         app.goTo().startPage();
-        app.vacancy().fillVacancy();
+        app.vacancy().fillVacancy(vacancy);
         app.vacancy().submitForm();
     }
 
