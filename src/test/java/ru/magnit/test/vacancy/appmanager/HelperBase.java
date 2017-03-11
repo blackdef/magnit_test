@@ -1,9 +1,6 @@
 package ru.magnit.test.vacancy.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
@@ -19,7 +16,9 @@ public class HelperBase {
   }
 
   protected void click(By locator) {
-    wd.findElement(locator).click();
+    WebElement webElement = wd.findElement(locator);
+   // ((JavascriptExecutor) wd).executeScript("arguments[0].scrollIntoView();", webElement);
+    webElement.click();
   }
 
   protected void type(By locator, String text) {
@@ -52,5 +51,13 @@ public class HelperBase {
     } catch (NoSuchElementException e){
       return false;
     }
+  }
+
+  protected void jclick(By locator) {
+
+    WebElement webElement = wd.findElement(locator);
+    ((JavascriptExecutor)wd).executeScript("arguments[0].click()", webElement);
+
+
   }
 }
