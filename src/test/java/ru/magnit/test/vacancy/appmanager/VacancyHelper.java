@@ -40,12 +40,13 @@ public class VacancyHelper extends HelperBase {
     type(By.name("user_date_year"), vacancy.getBirthYear());
     type(By.name("user_phone"), vacancy.getContactPhone());
     type(By.name("user_mail"), vacancy.getEmail());
-    if (vacancy.getApproval()) {
-      jclick(By.name("other_agree"));
+    if (vacancy.getApproval()!=null) {
+      if (vacancy.getApproval()) {
+        jclick(By.name("other_agree"));
+      }
     }
     if (vacancy.getResume() != null){
       jclick(By.id("ft_1"));
-      //jclick(By.id("File1"));
       attach(By.id("File1"), vacancy.getResume());
     }
 

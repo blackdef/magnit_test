@@ -137,6 +137,22 @@ public class VacancyData {
     return this;
   }
 
-
-
+  @Override
+  public String toString() {
+    return "VacancyData{" +
+            "region='" + region + '\'' +
+            ", city='" + city + '\'' +
+            ", vacancyName='" + vacancyName + '\'' +
+            ", personFullName='" + personFullName + '\'' +
+            ", birthDay='" + birthDay + '\'' +
+            ", birthYear='" + birthYear + '\'' +
+            ", contactPhone='" + contactPhone + '\'' +
+            ", email='" + email + '\'' +
+            ", approval=" + approval +
+            ", resume=" + resume +
+            ", regionId=" + regionId +
+            ", cityId=" + cityId +
+            ", vacancyNameId=" + vacancyNameId +
+            '}';
+  }
 }
