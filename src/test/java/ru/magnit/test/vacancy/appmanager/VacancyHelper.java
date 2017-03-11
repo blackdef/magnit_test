@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.magnit.test.vacancy.model.VacancyData;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by plotnikov on 09.03.2017.
  */
@@ -30,5 +33,10 @@ public class VacancyHelper extends HelperBase {
     type(By.name("user_phone"),vacancy.getContactPhone());
     type(By.name("user_mail"),vacancy.getEmail());
 
+  }
+
+  public Set<String> getErrorlist() {
+     Set<String> errorList = new HashSet<String>();
+    return errorList;
   }
 }
