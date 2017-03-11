@@ -63,3 +63,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.log
+.idea/workspace.xml
+.idea/vcs.xml
