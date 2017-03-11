@@ -22,11 +22,13 @@ public class VacancySubmit extends TestBase{
     public void testSubmitVacancyWithOutParameter() {
         VacancyData vacancy = new VacancyData().withRegion("Архангельская область").withCity("Архангельск").withVacancyName("Главный юристконсульт").
                 withPersoneFullName("Пупкин Иван Иванович").withBirthDay("12").withBirthYear("1234").
-                withEmail("qwe@asd.zx").withApproval(true);
+                withEmail("qwe@asd.zx").withApproval(true).withVacancyNameId(21696156).withCityId(4339).
+                withRegionId(829).withContactPhone("1234567980");
 
         app.goTo().startPage();
         app.vacancy().fillVacancy(vacancy);
         app.vacancy().submitForm();
+        //app.vacancy().getErrorlist();
     }
 
 

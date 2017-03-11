@@ -16,14 +16,13 @@ public class VacancyHelper extends HelperBase {
   }
 
   public void fillVacancy(VacancyData vacancy) {
-    click(By.cssSelector("div.cuselFrameRight"));
-    click(By.xpath(String.format("//div[@id='cusel-scroll-vregid']//span[.='%s']",vacancy.getRegion())));
-    click(By.xpath("//div[@id='cuselFrame-vcid']/div[1]"));
-    click(By.xpath("//div[@id='cusel-scroll-vcid']//span[.='Калуга']"));
-    click(By.xpath("//div[@id='cuselFrame-vac_name']/div[1]"));
-    click(By.xpath("//div[@id='cusel-scroll-vac_name']/span[6]"));
-    click(By.xpath("//div[@id='cuselFrame-vac_name_0']/div[1]"));
-    click(By.xpath("//div[@id='cusel-scroll-vac_name_0']//span[.='Продавец магазина \"Магнит\"']"));
+    click(By.cssSelector("#cuselFrame-vregid div.cuselFrameRight"));
+    click(By.cssSelector("#cusel-scroll-vregid span[value=\""+vacancy.getRegionId().toString()+"\"]"));
+    click(By.cssSelector("div#cuselFrame-vcid div.cuselFrameRight"));
+    click(By.cssSelector("#cusel-scroll-vcid span[value=\""+vacancy.getCityId().toString()+"\"]"));
+    click(By.cssSelector("#cuselFrame-vac_name div.cuselFrameRight"));
+    click(By.cssSelector("#cusel-scroll-vac_name span[value=\""+vacancy.getVacancyNameId().toString()+"\"]"));
+
 
     type(By.name("user_fio"),vacancy.getPersonFullName());
     type(By.name("user_date_day"),vacancy.getBirthDay());

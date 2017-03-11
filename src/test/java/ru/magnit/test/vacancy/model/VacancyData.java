@@ -16,6 +16,21 @@ public class VacancyData {
   private String email;
   private Boolean approval;
   private File resume;
+  private Integer regionId;
+  private Integer cityId;
+  private Integer vacancyNameId;
+
+  public Integer getRegionId() {
+    return regionId;
+  }
+
+  public Integer getCityId() {
+    return cityId;
+  }
+
+  public Integer getVacancyNameId() {
+    return vacancyNameId;
+  }
 
   public String getRegion() {
     return region;
@@ -59,6 +74,21 @@ public class VacancyData {
 
   public VacancyData withRegion(String region) {
     this.region = region;
+    return this;
+  }
+
+  public VacancyData withRegionId(Integer regionId) {
+    this.regionId = regionId;
+    return this;
+  }
+
+  public VacancyData withCityId(Integer cityId) {
+    this.cityId = cityId;
+    return this;
+  }
+
+  public VacancyData withVacancyNameId(Integer vacancyNameId) {
+    this.vacancyNameId = vacancyNameId;
     return this;
   }
 
