@@ -23,10 +23,10 @@ public class VacancyHelper extends HelperBase {
   public void fillVacancy(VacancyData vacancy) {
     if (vacancy.getRegionId()!=null) {
       click(By.cssSelector("#cuselFrame-vregid div.cuselFrameRight"));
-      click(By.cssSelector("#cusel-scroll-vregid span[value=\"" + vacancy.getRegionId().toString() + "\"]"));
+      sclick(By.cssSelector("#cusel-scroll-vregid span[value=\"" + vacancy.getRegionId().toString() + "\"]"));
       if (vacancy.getCityId()!= null) {
         click(By.cssSelector("div#cuselFrame-vcid div.cuselFrameRight"));
-        click(By.cssSelector("#cusel-scroll-vcid span[value=\"" + vacancy.getCityId().toString() + "\"]"));
+        sclick(By.cssSelector("#cusel-scroll-vcid span[value=\"" + vacancy.getCityId().toString() + "\"]"));
 
         if (vacancy.getVacancyNameId()!=null) {
           click(By.cssSelector("#cuselFrame-vac_name div.cuselFrameRight"));
@@ -42,6 +42,11 @@ public class VacancyHelper extends HelperBase {
     type(By.name("user_mail"), vacancy.getEmail());
     if (vacancy.getApproval()) {
       jclick(By.name("other_agree"));
+    }
+    if (vacancy.getResume() != null){
+      jclick(By.id("ft_1"));
+      //jclick(By.id("File1"));
+      attach(By.id("File1"), vacancy.getResume());
     }
 
 

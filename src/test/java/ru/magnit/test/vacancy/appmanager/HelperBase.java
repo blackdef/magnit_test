@@ -17,9 +17,21 @@ public class HelperBase {
 
   protected void click(By locator) {
     WebElement webElement = wd.findElement(locator);
-   // ((JavascriptExecutor) wd).executeScript("arguments[0].scrollIntoView();", webElement);
+   //((JavascriptExecutor) wd).executeScript("arguments[0].scrollIntoView();", webElement);
     webElement.click();
   }
+  protected void sclick(By locator) {
+    WebElement webElement = wd.findElement(locator);
+    ((JavascriptExecutor) wd).executeScript("arguments[0].scrollIntoView();", webElement);
+    webElement.click();
+  }
+  protected void jclick(By locator) {
+
+    WebElement webElement = wd.findElement(locator);
+    ((JavascriptExecutor)wd).executeScript("arguments[0].click()", webElement);
+  }
+
+
 
   protected void type(By locator, String text) {
     click(locator);
@@ -53,11 +65,5 @@ public class HelperBase {
     }
   }
 
-  protected void jclick(By locator) {
 
-    WebElement webElement = wd.findElement(locator);
-    ((JavascriptExecutor)wd).executeScript("arguments[0].click()", webElement);
-
-
-  }
 }

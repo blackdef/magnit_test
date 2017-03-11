@@ -3,6 +3,7 @@ package ru.magnit.test.vacancy.tests;
 import org.testng.annotations.Test;
 import ru.magnit.test.vacancy.model.VacancyData;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,10 +19,13 @@ public class VacancySubmit extends TestBase{
         Set<String> expectedErrors = new HashSet<>();
         expectedErrors.add("Не загружен файл резюме!");
 
-        VacancyData vacancy = new VacancyData().withRegion("Архангельская область").withCity("Архангельск").withVacancyName("Главный юристконсульт").
+        VacancyData vacancy = new VacancyData().
                 withPersoneFullName("Пупкин Иван Иванович").withBirthDay("12").withBirthYear("1234").
-                withEmail("qwe@asd.zx").withApproval(true).
-                withRegionId(1389).withContactPhone("1234567980");
+                withEmail("qwe@asd.zx").withApproval(true).withContactPhone("1234567980").
+                withRegion("Архангельская область").withCity("Архангельск").withVacancyName("Главный юристконсульт").
+                withRegionId(16).withCityId(115).withVacancyNameId(21605040);
+        vacancy.withResume(new File("src/test/resources/test.docx"));
+
         //.withVacancyNameId(8857368)  withRegionId(1389)  withCityId(2320326)
 
         app.goTo().startPage();
