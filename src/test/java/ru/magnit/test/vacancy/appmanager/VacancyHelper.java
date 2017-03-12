@@ -2,6 +2,7 @@ package ru.magnit.test.vacancy.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ru.magnit.test.vacancy.model.QuestionnaireData;
 import ru.magnit.test.vacancy.model.VacancyData;
 
 import java.lang.reflect.Array;
@@ -62,5 +63,9 @@ public class VacancyHelper extends HelperBase {
     }
 
     return errorList;
+  }
+
+  public void fillQuestionnaire(QuestionnaireData questionnaire) {
+    jclick(By.id("ft_2"));
   }
 }
